@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কোরিয়ান বর্ণমালা শিখুন</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* পুরো হোমস্ক্রিন গাঢ় এবং সবুজ গ্রেডিয়েন্ট */
+        body {
+            background: linear-gradient(135deg, #0a2f1d, #144d32);
+            color: #fff;
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        /* চলন্ত নোটিফিকেশন বার */
+        .notification-bar {
+            background-color: #0d3d26;
+            color: #26e689;
+            padding: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #1b6643;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* ডাউনলোড সেকশন স্টাইল */
+        .download-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #26e689, #169655);
+            color: #0a2f1d;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(38, 230, 137, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 8px rgba(38, 230, 137, 0.2);
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #11693e, #0b4729);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 1px solid #1b854f;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Tab Buttons */
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 1px solid #1b6643;
+            border-radius: 8px;
+            background-color: #0d3d26;
+            color: #a3cfb9;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #169655, #0f6b3c);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border-color: #26e689;
+        }
+
+        /* Letter Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        /*カードগুলোর প্রিমিয়াম সবুজ লুক */
+        .card {
+            background: #0f4229;
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #1b6643;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.95);
+            background-color: #145937;
+            border-color: #26e689;
+        }
+
+        .korean-char {
+            font-size: 42px; 
+            font-weight: bold;
+            color: #26e689;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .bangla-pron {
+            font-size: 16px;
+            color: #d1ebd9;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notification-bar">
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            📢 এসকে শুভ খান উদ্যোক্তা 📢
+        </marquee>
+    </div>
+
+    <div class="download-container">
+        <a href="Korean_Learning.apk" download class="download-btn">
+            📥 সরাসরি অ্যাপটি ডাউনলোড করুন (APK)
+        </a>
+    </div>
+
+    <header>
+        <h1>কোরিয়ান বর্ণমালা</h1>
+        <p>সহজেই শিখুন স্বরবর্ণ ও ব্যঞ্জনবর্ণ</p>
+    </header>
+
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab('vowels', this)">স্বরবর্ণ (১০)</button>
+        <button class="tab-btn" onclick="switchTab('consonants', this)">ব্যঞ্জনবর্ণ (১৪)</button>
+    </div>
+
+    <div id="vowels" class="grid-container">
+        <div class="card" onclick="playPerfectAudio('ㅏ')"><div class="korean-char">ㅏ</div><div class="bangla-pron">আ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅑ')"><div class="korean-char">ㅑ</div><div class="bangla-pron">িয়া</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅓ')"><div class="korean-char">ㅓ</div><div class="bangla-pron">অ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅕ')"><div class="korean-char">ㅕ</div><div class="bangla-pron">ইঅ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅗ')"><div class="korean-char">ㅗ</div><div class="bangla-pron">ও</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅛ')"><div class="korean-char">ㅛ</div><div class="bangla-pron">ইও</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅜ')"><div class="korean-char">ㅜ</div><div class="bangla-pron">উ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅠ')"><div class="korean-char">ㅠ</div><div class="bangla-pron">ইউ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅡ')"><div class="korean-char">ㅡ</div><div class="bangla-pron">উ (দাতবদ্ধ)</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅣ')"><div class="korean-char">ㅣ</div><div class="bangla-pron">ই</div></div>
+    </div>
+
+    <div id="consonants" class="grid-container hidden">
+        <div class="card" onclick="playPerfectAudio('ㄱ')"><div class="korean-char">ㄱ</div><div class="bangla-pron">গিয়ক</div></div>
+        <div class="card" onclick="playPerfectAudio('ㄴ')"><div class="korean-char">ㄴ</div><div class="bangla-pron">নিয়ন</div></div>
+        <div class="card" onclick="playPerfectAudio('ㄷ')"><div class="korean-char">ㄷ</div><div class="bangla-pron">দিগুত</div></div>
+        <div class="card" onclick="playPerfectAudio('ㄹ')"><div class="korean-char">ㄹ</div><div class="bangla-pron">রিউল</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅁ')"><div class="korean-char">ㅁ</div><div class="bangla-pron">মিয়ুম</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅂ')"><div class="korean-char">ㅂ</div><div class="bangla-pron">বিয়ুপ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅅ')"><div class="korean-char">ㅅ</div><div class="bangla-pron">শিয়ত</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅇ')"><div class="korean-char">ㅇ</div><div class="bangla-pron">অিয়ুং</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅈ')"><div class="korean-char">ㅈ</div><div class="bangla-pron">জিউত</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅊ')"><div class="korean-char">ㅊ</div><div class="bangla-pron">ছিউত</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅋ')"><div class="korean-char">ㅋ</div><div class="bangla-pron">খিউক</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅌ')"><div class="korean-char">ㅌ</div><div class="bangla-pron">থিউত</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅍ')"><div class="korean-char">ㅍ</div><div class="bangla-pron">ফিউপ</div></div>
+        <div class="card" onclick="playPerfectAudio('ㅎ')"><div class="korean-char">ㅎ</div><div class="bangla-pron">হিউত</div></div>
+    </div>
+
+    <script>
+        function switchTab(tabId, button) {
+            document.getElementById('vowels').classList.add('hidden');
+            document.getElementById('consonants').classList.add('hidden');
+            let buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.remove('hidden');
+            button.classList.add('active');
+        }
+
+        // অডিও ভয়েস ফাংশন
+        function playPerfectAudio(char) {
+            let targetUrl = "https://dict.youdao.com/dictvoice?audio=" + encodeURIComponent(char) + "&le=ko";
+            let audio = new Audio(targetUrl);
+            audio.play().catch(function(error) {
+                console.log("Audio play blocked", error);
+            });
+        }
+    </script>
+</body>
+</html>
